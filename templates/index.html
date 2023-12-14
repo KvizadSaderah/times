@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Мировое Время</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+  }
+  .container {
+    max-width: 960px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .box {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    width: 100%;
+  }
+  .title {
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  .time-slot {
+    margin-bottom: 15px;
+  }
+  input, button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  button {
+    background-color: #6c63ff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:hover {
+    background-color: #5753c9;
+  }
+  .city-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .city-buttons button {
+    flex-grow: 1;
+  }
+  @media (min-width: 768px) {
+    .container {
+      flex-direction: row;
+    }
+    .box {
+      margin: 0 10px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="box">
+    <div class="title">Текущее время в</div>
+    <div class="time-slot">Лос-Анджелес: <span id="timeLA">Загрузка...</span></div>
+    <div class="time-slot">Уфа: <span id="timeUfa">Загрузка...</span></div>
+    <div class="time-slot">София: <span id="timeSofia">Загрузка...</span></div>
+  </div>
+  <div class="box">
+    <div class="title">Проверка времени</div>
+    <div class="city-buttons">
+      <button onclick="selectCity('LA')">Лос-Анджелес</button>
+      <button onclick="selectCity('Ufa')">Уфа</button>
+      <button onclick="selectCity('Sofia')">София</button>
+    </div>
+    <input type="time" id="timeInput">
+    <button id="calculateTime">Рассчитать</button>
+  </div>
+</div>
+
+<script>
+// Здесь будет JavaScript для логики приложения
+function selectCity(city) {
+  // Здесь будет код для выбора города
+}
+</script>
+
+</body>
+</html>
+
