@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Мировое Время</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мировое Время</title>
 <style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -76,33 +76,44 @@
 </style>
 </head>
 <body>
+    <h1>Мировое Время</h1>
+    <div id="currentTime"></div>
 
-<div class="container">
-  <div class="box">
-    <div class="title">Текущее время в</div>
-    <div class="time-slot">Лос-Анджелес: <span id="timeLA">Загрузка...</span></div>
-    <div class="time-slot">Уфа: <span id="timeUfa">Загрузка...</span></div>
-    <div class="time-slot">София: <span id="timeSofia">Загрузка...</span></div>
-  </div>
-  <div class="box">
-    <div class="title">Проверка времени</div>
-    <div class="city-buttons">
-      <button onclick="selectCity('LA')">Лос-Анджелес</button>
-      <button onclick="selectCity('Ufa')">Уфа</button>
-      <button onclick="selectCity('Sofia')">София</button>
-    </div>
-    <input type="time" id="timeInput">
-    <button id="calculateTime">Рассчитать</button>
-  </div>
-</div>
+    <h2>Выберите город и время</h2>
+    <input type="text" id="selectedCity" placeholder="Город">
+    <input type="time" id="selectedTime">
+    <button id="submitTime">Показать время</button>
 
-<script>
-// Здесь будет JavaScript для логики приложения
-function selectCity(city) {
-  // Здесь будет код для выбора города
-}
-</script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function loadCurrentTime() {
+            fetch('/get-current-time')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("currentTime").innerHTML = JSON.stringify(data);
+                });
+        }
 
+        function sendSelectedTime() {
+            var selectedCity = document.getElementById("selectedCity").value;
+            var selectedTime = document.getElementById("selectedTime").value;
+
+            fetch('/get-time', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ city: selectedCity, time: selectedTime })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert("Время в других городах: " + JSON.stringify(data));
+            });
+        }
+
+        loadCurrentTime();
+        document.getElementById("submitTime").addEventListener("click", sendSelectedTime);
+    });
+    </script>
 </body>
 </html>
-
