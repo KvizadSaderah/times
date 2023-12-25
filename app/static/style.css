@@ -1,0 +1,69 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-side, .right-side {
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.left-side div {
+    font-size: 6em; /* Significantly larger font size for cities and times */
+    margin-bottom: 20px; /* Increased margin for better spacing */
+}
+
+.right-side {
+    font-size: 2em; /* Larger font size for form elements */
+}
+
+select, input[type="time"], button {
+    width: 90%;
+    max-width: 300px;
+    font-size: 1.5em;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    color: white;
+    background-color: #007bff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 600px) {
+    .left-side div, .right-side {
+        font-size: 4em; /* Extremely large font size for mobile */
+    }
+
+    select, input[type="time"], button {
+        font-size: 2em; /* Larger font size for form elements on mobile */
+    }
+}
+

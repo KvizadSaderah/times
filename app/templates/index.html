@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Time Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+            font-size: calc(10px + 1.5vw); /* Responsive font size */
+            background: linear-gradient(135deg, #6dd5ed, #2193b0); /* Gradient background */
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 70vw; /* 70% of the viewport width */
+            max-width: 1200px; /* Maximum width */
+            margin: auto;
+            overflow: hidden; /* Ensures the content is contained within the rounded corners */
+        }
+        .left-side, .right-side {
+            margin-bottom: 1rem;
+        }
+        #time-input, select {
+            padding: 1vw; /* Responsive padding */
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-top: 0.5rem;
+            font-size: 1em; /* Relative to the parent font size */
+            background: #fff; /* White background for inputs */
+        }
+        button {
+            padding: 1vw 2vw; /* Responsive padding */
+            background-color: #5c6bc0;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-size: 1em; /* Relative to the parent font size */
+            letter-spacing: 0.05em; /* Spacing between letters for better readability */
+        }
+        button:hover {
+            background-color: #3f51b5;
+            transform: translateY(-2px); /* Slight lift effect on hover */
+        }
+        /* Additional responsiveness */
+        @media (max-width: 768px) {
+            body {
+                font-size: 5vw; /* Larger font size on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <!-- Display current times -->
+            <div id="time-ufa">Ufa: {{ current_times['Ufa'] }}</div>
+            <div id="time-sofia">Sofia: {{ current_times['Sofia'] }}</div>
+            <div id="time-los-angeles">Los Angeles: {{ current_times['Los Angeles'] }}</div>
+        </div>
+        <div class="right-side">
+            <!-- User input for city and time -->
+            <select id="city-selector">
+                <option value="Ufa">Уфа</option>
+                <option value="Sofia" selected>София</option>
+                <option value="Los Angeles">Лос Анджелес</option>
+            </select>
+            <input type="time" id="time-input">
+            <button id="show-times-btn">Расчитать время</button>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
+
