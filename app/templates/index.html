@@ -69,19 +69,19 @@
             <h1>Узнать время</h1>
             <h3>относительно выбранного города</h3>
             <select id="city-selector">
-                <option value="Ufa">Ufa</option>
-                <option value="Sofia" selected>Sofia</option>
-                <option value="Los Angeles">Los Angeles</option>
+                <option value="Уфа">Ufa</option>
+                <option value="София" selected>Sofia</option>
+                <option value="Лос Анджелес">Los Angeles</option>
             </select>
             <input type="time" id="time-input">
-            <button id="show-times-btn">Show Times</button>
+            <button id="show-times-btn">Показать время</button>
         </div>
         
         <div class="bottom-section" id="time-display" style="display: none;">
             <!-- Display times for other cities -->
-            <div id="time-ufa">Ufa: Not Set</div>
-            <div id="time-sofia">Sofia: Not Set</div>
-            <div id="time-los-angeles">Los Angeles: Not Set</div>
+            <div id="time-ufa">Уфа: Not Set</div>
+            <div id="time-sofia">София: Not Set</div>
+            <div id="time-los-angeles">Лос Анджелес: Not Set</div>
         </div>
     </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
